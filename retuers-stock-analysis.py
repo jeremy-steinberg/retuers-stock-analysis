@@ -72,7 +72,7 @@ def import_excel(stock_name, position):
         for i in range(len(titles)):
                 print "%s %s" %(titles[i], value[i])  
 
-        print "Consensus: \t\t%s"%(consensus)
+        print "Consensus: \t\t%s" %(consensus)
 
 def spreadsheet_finalise():
         """
