@@ -15,7 +15,6 @@
         <td> Consensus </td>
         <td> Dividend </td>
         <td> Price Earnings </td>
-        <td> Time </td>
         <td> Link </td>
       </tr>
     </thead>
@@ -34,7 +33,6 @@
           <td> {{stock_value.consensus}} </td>
           <td> {{stock_value.dividend}} </td>
           <td> {{stock_value.price_earnings}} </td> 
-          <td> {{stock_value.time}} </td>
           <td> <a href="http://www.reuters.com/finance/stocks/analyst?symbol={{stock_value.get_stock_code}}">{{stock_value.get_stock_code}}</a></td>
         </tr>
       {% endfor %}
