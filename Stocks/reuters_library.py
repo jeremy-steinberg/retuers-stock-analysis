@@ -27,7 +27,8 @@ class ReutersLibrary:
         base_response = ReutersLibrary.get_response(stock_name)
         overview_response = ReutersLibrary.get_response(stock_name, path=ReutersLibrary.REUTERS_OVERVIEW_URL)
         values = base_response.xpath(ReutersLibrary.RATINGS_XPATH)
-        
+        if len(values) < 5:
+            return []
         values.append(base_response.xpath(ReutersLibrary.MEAN_LAST_MONTH_XPATH)[0])
         values.append(base_response.xpath(ReutersLibrary.CONSENSUS_XPATH)[0])
         values.append(overview_response.xpath(ReutersLibrary.DIVIDENDS_XPATH)[0])

@@ -64,3 +64,11 @@ class StockValue(models.Model):
                                               values[2], values[3], values[4],
                                               values[5], values[6],values[7],
                                               values[8], values[9], values[10])
+                
+    def get_row_style(self):
+        style = ""
+        if self.mean <= 2:
+            style = style + "background-color:#00ff00;"
+        if self.get_mean_difference() <= -1:
+            style = style + "font-weight: bold;"
+        return style
