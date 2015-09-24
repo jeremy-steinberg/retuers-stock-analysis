@@ -15,3 +15,15 @@ install using command prompt or powershell using the following:
 pip install requests
 pip install lxml
 pip install openpyxl
+
+# retuers-stock-analysis website
+
+Install Django https://docs.djangoproject.com/en/1.8/topics/install/#install-the-django-code
+
+create a DB:
+python manage.py migrate
+
+run the website
+python manage.py runserver
+
+open http://127.0.0.1:8000/stocks/stocks
