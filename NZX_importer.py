@@ -2,6 +2,8 @@ from lxml import html
 import requests
 
 
+## note this is written for python 3, unlike previous programs in project
+
 NZX50_URL = 'http://topforeignstocks.com/indices/components-of-the-nzsx-50-index/'
 NZX_URL = 'https://www.nzx.com/markets/NZSX/securities'
 
@@ -30,6 +32,7 @@ def get_NZX50_tickers(xpath):
 
     return NZX50_xml.xpath(xpath)
 
+
 def get_NZX_xml():
     global NZX_xml
 
@@ -43,19 +46,28 @@ def get_NZX_tickers(xpath):
     return NZX_xml.xpath(xpath)
 
 
+def generate_NZX50_list():
+    get_NZX50_xml()
+    STOCK_LIST_50_TICKERS = get_NZX50_tickers(STOCK_XPATH_50)
+    return STOCK_LIST_50_TICKERS
+
+def generate_NZX_list():
+    get_NZX_xml()
+    STOCK_LIST_TICKERS = get_NZX_tickers(STOCK_XPATH)
+    for i in range (len(STOCK_LIST_TICKERS)):
+        STOCK_LIST_TICKERS[i] += ".NZ"
+    return STOCK_LIST_TICKERS
 
 #=================EXECUTE FUNCTIONS=================#
 
-get_NZX50_xml()
-get_NZX_xml()
 
 
 
-STOCK_LIST_TICKERS = get_NZX_tickers(STOCK_XPATH)
-print (STOCK_LIST_TICKERS)
 
-STOCK_LIST_50_TICKERS = get_NZX50_tickers(STOCK_XPATH_50)
-print (STOCK_LIST_50_TICKERS)
+
+
+print (generate_NZX_list())
+print (generate_NZX50_list())
 
 
 
